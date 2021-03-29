@@ -11,6 +11,41 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lastname %>
+    <%= form.text_field :lastname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.text_field :position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :salary %>
+    <%= form.number_field :salary %>
+  </div>
+
+  <div class="field">
+    <%#= form.label :department %>
+    <%#= form.select :department, Employee.departments.values %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
