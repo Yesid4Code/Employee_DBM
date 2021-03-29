@@ -11,7 +11,10 @@ class EmployeesController < ApplicationController
     end
   end
 
-
+  def import
+    Employee.import(params[:file])
+    redirect_to employees_url, notice: "Employees were successfully imported."
+  end
 
   # GET /employees/1 or /employees/1.json
   def show
