@@ -1,4 +1,36 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>First name:</strong>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @employee.last_name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= number_to_phone(@employee.phone, area_code: true) %>
+  <%#= to_phone(@employee.phone) %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @employee.email %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= number_to_currency(@employee.salary, :unit => "$", :separator =>",", :delimiter => ".", :precision => 2) %>
+  <%#= to_currency(@employee.salary) %>
+</p>
+
+<p>
+  <strong>Department:</strong>
+  <%#= @employee.department %>
+</p>
+
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>
