@@ -1,5 +1,8 @@
 class Employee < ApplicationRecord
-
+  enum departments: { acc: "Accounting", fin: "Finance",
+                      op: "Operations", sec: "Security",
+                      hr: "Human Resources" }
+  
   validates :name, presence: true, length: { minimum: 2, maximum: 12 }
   validates :last_name, presence: true, length: { minimum: 2, maximum: 12 }
   validates :phone, numericality: { only_integer: true }, length: { is: 10 }
