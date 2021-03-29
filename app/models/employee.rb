@@ -1,4 +1,14 @@
 class Employee < ApplicationRecord
+
+  validates :name, presence: true, length: { minimum: 2, maximum: 12 }
+  validates :last_name, presence: true, length: { minimum: 2, maximum: 12 }
+  validates :phone, numericality: { only_integer: true }, length: { is: 10 }
+  VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, uniqueness: { case_sensitive: false },
+            format: { with: VALID_EMAIL }, length: { minimum: 5, maximum: 25 }
+  validates :position, presence: true, length: { maximum: 20 }
+  validates :salary, presence: true, numericality: true
+  validates :department, presence: true
   
   def self.to_csv(fields = column_names, options = {})
     CSV.generate(options) do |csv|
