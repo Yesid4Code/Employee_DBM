@@ -24,6 +24,7 @@ class Employee < ApplicationRecord
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
+      # Use just: Contact.create! row.to_hash << instand of:
       employee_elements = row.to_h
       employee = find_or_create_by!(name: employee_elements['name'],
                                     last_name: employee_elements['last_name'],
